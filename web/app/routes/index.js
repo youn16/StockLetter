@@ -104,7 +104,9 @@ import Icons from './Icons';
 
 //Cumstom Imports
 
-import ReportGrid from './Apps/ReportGrid';
+import ReportGrid from './Apps/ReportGrid'; //뉴스
+
+import CustomFin from './CustomFin'; //각 종목별 정보
 
 // ----------- Layout Imports ---------------
 import { DefaultNavbar } from './../layout/components/DefaultNavbar';
@@ -119,7 +121,7 @@ import { SidebarCustom } from './../layout/components/SidebarCustom';
 export const RoutedContent = () => {
     return (
         <Switch>
-            <Redirect from="/" to="/dashboards/projects" exact />
+            <Redirect from="/" to="/dashboards/stock" exact />
             
             <Route path="/dashboards/analytics" exact component={Analytics} />
             <Route path="/dashboards/projects" exact component={ProjectsDashboard} />
@@ -228,6 +230,8 @@ export const RoutedContent = () => {
 
             { /*    Custom Routes     */ }
             <Route component={ ReportGrid } path="/apps/report-grid" />
+            
+            <Route path='/customfin' exact component={CustomFin} />
 
             { /*    404    */ }
             <Redirect to="/pages/error-404" />

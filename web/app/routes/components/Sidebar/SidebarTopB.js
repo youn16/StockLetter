@@ -22,10 +22,12 @@ const SidebarTopB = () => (
                             Back to Home
                         </UncontrolledTooltip>
 
+                        {/* custom 사이드바 하단 버전 정보 수정*/}
+                        {/* ---
                         <VersionSelector
                             down
                             sidebar
-                            dashboard="Airframe"
+                            dashboard="StockLetter"
                             render={(currentVersion) => (
                                 <React.Fragment>
                                     <div className="h4 fw-600 sidebar-logo mb-1 text-left">
@@ -39,6 +41,7 @@ const SidebarTopB = () => (
                                 </React.Fragment>
                             )}
                         />
+                        --- */}
                     </div>
                 </div>
             </Sidebar.HideSlim>

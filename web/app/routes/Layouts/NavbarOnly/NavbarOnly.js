@@ -32,7 +32,7 @@ class NavbarOnly extends React.Component {
         return (
             <Container>
                 <p className="mb-5 mt-3">
-                    Welcome to the <b>&quot;Airframe&quot;</b> Admin Dashboard Theme based on <a href="https://getbootstrap.com" className="text-primary" target="_blank" rel="noopener noreferrer">Bootstrap 4.x</a> version for React called&nbsp;
+                    Welcome to the <b>&quot;StockLetter&quot;</b> Admin Dashboard Theme based on <a href="https://getbootstrap.com" className="text-primary" target="_blank" rel="noopener noreferrer">Bootstrap 4.x</a> version for React called&nbsp;
                     <a href="https://reactstrap.github.io" className="text-primary" target="_blank" rel="noopener noreferrer">reactstrap</a> - easy to use React Bootstrap 4 components compatible with React 16+.
                 </p>
 
@@ -75,7 +75,7 @@ class NavbarOnly extends React.Component {
 
                 <section className="mb-5">
                     <h6>
-                        Other versions for &quot;Airframe&quot;:
+                        Other versions for &quot;StockLetter&quot;:
                     </h6>
                     <ul className="pl-3">
                         <li>

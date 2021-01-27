@@ -10,7 +10,7 @@ export const SidebarDefault = () => (
         <h1 className="display-4 mb-4 mt-2">Sidebar &amp; Navbar</h1>
         
         <p className="mb-5">
-            Welcome to the <b>&quot;Airframe&quot;</b> Admin Dashboard Theme based on <a href="https://getbootstrap.com" className="text-primary" target="_blank" rel="noopener noreferrer">Bootstrap 4.x</a> version for React called&nbsp;
+            Welcome to the <b>&quot;StockLetter&quot;</b> Admin Dashboard Theme based on <a href="https://getbootstrap.com" className="text-primary" target="_blank" rel="noopener noreferrer">Bootstrap 4.x</a> version for React called&nbsp;
             <a href="https://reactstrap.github.io" className="text-primary" target="_blank" rel="noopener noreferrer">reactstrap</a> - easy to use React Bootstrap 4 components compatible with React 16+.
         </p>
 
@@ -53,7 +53,7 @@ export const SidebarDefault = () => (
 
         <section className="mb-5">
             <h6>
-                Other versions for &quot;Airframe&quot;:
+                Other versions for &quot;StockLetter&quot;:
             </h6>
             <ul className="pl-3">
                 <li>

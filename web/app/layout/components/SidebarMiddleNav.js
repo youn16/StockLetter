@@ -8,22 +8,27 @@ export const SidebarMiddleNav = () => (
     <SidebarMenu>
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-home"></i>}
-            title="이세연"
+            title="총 망라"
         >
-            
+            { /* --------
             <SidebarMenu.Item title="Analytics" to='/dashboards/analytics' exact />
             <SidebarMenu.Item title="Projects" to='/dashboards/projects' exact />
             <SidebarMenu.Item title="System" to='/dashboards/system' exact />
             <SidebarMenu.Item title="Monitor" to='/dashboards/monitor' exact />
             <SidebarMenu.Item title="Financial" to='/dashboards/financial' exact />
-            <SidebarMenu.Item title="Stock" to='/dashboards/stock' exact />
             <SidebarMenu.Item title="Reports" to='/dashboards/reports' exact />
+             ---------*/ }
+            <SidebarMenu.Item title="오늘의 구독 정보" to='/dashboards/stock' exact />
         </SidebarMenu.Item>
 
         { /* -------- Custom Stock List ---------*/ }
 
-        <SidebarMenu.Item title="삼성전자">
-                <SidebarMenu.Item title="삼성전자 뉴스" to="/apps/report-grid" />
+        <SidebarMenu.Item 
+            icon={<i className="fa fa-fw fa-area-chart"></i>}
+            title="삼성전자"
+        >
+            <SidebarMenu.Item title="Financial" to="/customfin" />
+            <SidebarMenu.Item title="News" to="/apps/report-grid" />
         </SidebarMenu.Item>
 
         { /* -------- Widgets ---------*/ }
@@ -177,6 +182,7 @@ export const SidebarMiddleNav = () => (
             <SidebarMenu.Item title="Chat" to="/apps/chat" exact />
         </SidebarMenu.Item>
         ----- */}
+
         { /* -------- Pages ---------*/ }
         { /* ------
         <SidebarMenu.Item
@@ -195,6 +201,8 @@ export const SidebarMiddleNav = () => (
             <SidebarMenu.Item title="Timeline" to="/pages/timeline" />
         </SidebarMenu.Item>
         ----- */}
+
+        { /* -------- 
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-star-o"></i>}
             title="Icons"
@@ -205,6 +213,8 @@ export const SidebarMiddleNav = () => (
             title="Docs"
             href='https://webkom.gitbook.io/spin/v/airframe/airframe-react/documentation-react'
         />
+        ---------*/ }
+
         { /* -------- Versions ---------*/ }
         {/*
         <SidebarMenu.Item

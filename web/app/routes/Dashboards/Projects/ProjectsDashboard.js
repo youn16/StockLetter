@@ -73,7 +73,6 @@ const ProjectsDashboard = () => (
                     </Col>
                 </Row>
                 <div className="hr-text hr-text-center mb-2 mt-3">
-                    <span>Invoices</span>
                 </div>
                 <Row className="mb-4 mb-xl-0">
                     <Col xs={ 6 } className="text-center">

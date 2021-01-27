@@ -8,13 +8,13 @@ import {
 } from './../../../components';
 import { HeaderMain } from "../../components/HeaderMain";
 import { ProjectsSmHeader } from "../../components/Projects/ProjectsSmHeader";
-import { GalleryCard } from "../../components/Gallery/GalleryCard";
+import { ReportCard } from "../../components/Report/ReportCard";
 import { Paginations } from "../../components/Paginations";
 
 const ReportGrid = () => (
     <Container>
         <HeaderMain 
-            title="ReportGrid"
+            title="News"
             className="mb-5 mt-4"
         />
         { /* START Content */}
@@ -28,29 +28,29 @@ const ReportGrid = () => (
                 />
                 */ }
                 <CardColumns>
-                    <GalleryCard />
-                    <GalleryCard 
+                    <ReportCard />
+                    <ReportCard 
                         id="2"
                     />
-                    <GalleryCard 
+                    <ReportCard 
                         id="3"
                     />
-                    <GalleryCard 
+                    <ReportCard 
                         id="4"
                     />
-                    <GalleryCard 
+                    <ReportCard 
                         id="5"
                     />
-                    <GalleryCard 
+                    <ReportCard 
                         id="6"
                     />
-                    <GalleryCard 
+                    <ReportCard 
                         id="7"
                     />
-                    <GalleryCard 
+                    <ReportCard 
                         id="8"
                     />
-                    <GalleryCard 
+                    <ReportCard 
                         id="9"
                     />
                 </CardColumns>

@@ -46,7 +46,7 @@ const Stock = () => (
         <Row className="mb-2">
             <Col lg={ 12 }>
                 <HeaderMain 
-                    title="Stock"
+                    title="오늘의 구독 정보"
                     className="mb-4 mb-lg-4"
                 />
             </Col>

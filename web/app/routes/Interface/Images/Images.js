@@ -33,7 +33,7 @@ const Images = () => (
         <Row>
             <Col lg={ 12 }>
                 <HeaderDemo 
-                    no={4} 
+                    no={1} 
                     title="Images" 
                     subTitle="Documentation and examples for opting images into responsive behavior."
                 />
