@@ -10,4 +10,4 @@ yarn.lock
 .DS_Store
 
 # key
-api
+URL.js
