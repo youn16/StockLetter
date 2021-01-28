@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
     Container,
     Row,
@@ -7,7 +8,9 @@ import {
     Table,
     Badge,
     CardTitle,
+    CardDeck,
     Nav,
+    Button,
     NavLink,
     NavItem,
     Col
@@ -21,168 +24,149 @@ import {
 } from "../../components/Stock/SimpleLineChart"
 
 import {
-    TrTableSummary
-} from "../../components/Stock/TrTableSummary"
-
-import {
     TrTableStock
 } from "../../components/Stock/TrTableStock"
 
 import {
     TrTableFavStock
 } from "../../components/Stock/TrTableFavStock"
+import { PositiveAndNegativeBarChart } from '../../Graphs/ReCharts/components/PositiveAndNegativeBarChart';
+import { getSubscribes } from '../../../modules/subscribes';
+import { HeaderDemo } from '../../components/HeaderDemo';
 
-/*eslint-disable */
-const progressCompletion = [
-    "25",
-    "50",
-    "75",
-    "97"
+const name = [
+    "시장종류",
+    "현재가",
+    "전날 종가",
+    "증감"
 ];
-/*eslint-enable */
+const Stock = () => {
+    const { data, loading, error } = useSelector(state => state.subscribes.subscribes);
+    const dispatch = useDispatch();
 
-const Stock = () => (
-    <Container>
-        <Row className="mb-2">
-            <Col lg={ 12 }>
-                <HeaderMain 
-                    title="오늘의 구독 정보"
-                    className="mb-4 mb-lg-4"
-                />
-            </Col>
-        </Row>
-        <Row>
-            <Col lg={ 12 }>
-                <Table responsive size="sm" className="mb-4 text-nowrap">
-                    <thead>
-                        <tr>
-                            <td className="bt-0">
-                                <h4 className="mb-1">
-                                    Your 5
-                                </h4>
-                                Favourites Stocks
-                            </td>
-                            <td className="bt-0">
-                                <h4 className="mb-1">
-                                    AAPL
-                                </h4>
-                                <span className="text-success">
-                                    <i className="fa fa-caret-up mr-1"></i> 22.38
-                                </span> / 5.9%
-                            </td>
-                            <td className="bt-0">
-                                <h4 className="mb-1">
-                                    MSFT
-                                </h4>
-                                <span className="text-danger">
-                                    <i className="fa fa-caret-down mr-1"></i> 34.18
-                                </span> / 0.56%
-                            </td>
-                            <td className="bt-0">
-                                <h4 className="mb-1">
-                                    CAT
-                                </h4>
-                                <span className="text-success">
-                                    <i className="fa fa-caret-up mr-1"></i> 22.38
-                                </span> / 12.2%
-                            </td>
-                            <td className="bt-0">
-                                <h4 className="mb-1">
-                                    TSLA
-                                </h4>
-                                <span className="text-success">
-                                    <i className="fa fa-caret-up mr-1"></i> 31.03
-                                </span> / 3.2%
-                            </td>
-                            <td className="bt-0">
-                                <h4 className="mb-1">
-                                    KN
-                                </h4>
-                                <span className="text-danger">
-                                    <i className="fa fa-caret-down mr-1"></i> 34.18
-                                </span> / 0.56%
-                            </td>
-                            <td className="bt-0">
-                                <h4 className="mb-1">
-                                    QZA
-                                </h4>
-                                <span className="text-danger">
-                                    <i className="fa fa-caret-down mr-1"></i> 4.02
-                                </span> / 4.21%
-                            </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <TrTableFavStock />
-                    </tbody>
-                </Table>
-            </Col>
-            <Col lg={ 8 }>
-                <Card className="mb-3">
-                    <CardBody>
-                        <span className="d-flex mb-3">
-                            <CardTitle>
-                                <h6>Nokia Corp. 
-                                    <small>
-                                        <span className="text-success ml-2">
-                                            <i className="fa fa-caret-up mr-1"></i> 22.38
-                                        </span> / 5.9%
-                                    </small>
-                                </h6>
-                            </CardTitle>
-                            <Badge pill className="ml-auto align-self-start"> Score: 7.24 </Badge>
-                        </span>
-                        <div className="text-center">
-                            <SimpleLineChart />
-                            <div className="d-flex mt-4">
-                                <dl className="row">
-                                    <dt className="col-sm-4 text-left text-sm-right">Open</dt>
-                                    <dd className="col-sm-8 text-left text-inverse">$834.00</dd>
-                                    <dt className="col-sm-4 text-left text-sm-right">High</dt>
-                                    <dd className="col-sm-8 text-left text-inverse">$198.00</dd>
-                                    <dt className="col-sm-4 text-left text-sm-right">Low</dt>
-                                    <dd className="col-sm-8 text-left text-inverse">$575.00</dd>
-                                </dl>
-                                <dl className="row">
-                                    <dt className="col-sm-4 text-left text-sm-right">Market Cap</dt>
-                                    <dd className="col-sm-8 text-left text-inverse">876.00B</dd>
-                                    <dt className="col-sm-4 text-left text-sm-right">P/E ratio (ttm)</dt>
-                                    <dd className="col-sm-8 text-left text-inverse">62.00</dd>
-                                    <dt className="col-sm-4 text-left text-sm-right">Divided Yield</dt>
-                                    <dd className="col-sm-8 text-left text-inverse">94.7%</dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </CardBody>
-                </Card>
-            </Col>
-            <Col lg={ 4 }>
-                <Card className="mb-3">
-                    <CardBody className="pb-1">
-                        <Nav pills>
-                            <NavItem>
-                                <NavLink href="#" active>Summary</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="#">Key Stats</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </CardBody>
-                    <Table responsive striped className="mb-0">
+    // 컴포넌트 마운트 후 포스트 목록 요청
+    useEffect(() => {
+        dispatch(getSubscribes());
+    }, [dispatch]);
+
+    if (loading) return <div>로딩중...</div>;
+    if (error) return <div>에러 발생</div>;
+    if (!data) return null;
+
+    let copy = data.slice(0, 5); // [3, 4, 5]
+    return (
+        <Container>
+            <Row className="mb-2">
+                <Col lg={12}>
+                    <HeaderMain
+                        title="오늘의 구독 정보"
+                        className="mb-4 mb-lg-4"
+                    />
+                </Col>
+            </Row>
+            <Row>
+                <Col lg={12}>
+                    <HeaderDemo
+                        no={1}
+                        title="내 구독 기업 한눈에 보기"
+                        subTitle={(
+                            <React.Fragment>
+                                <strong>보아요</strong>
+                            </React.Fragment>
+                        )}
+                    />
+                </Col>
+            </Row>
+            <Row>
+                <Col lg={12}>
+                    <Table responsive size="sm" className="mb-4 text-nowrap">
                         <thead>
                             <tr>
-                                <th className="bt-0">Name</th>
-                                <th className="bt-0 text-right">2013</th>
-                                <th className="bt-0 text-right">2014</th>
-                                <th className="bt-0 text-right">TTM</th>
+                                <td className="bt-0">
+                                    <h4 className="mb-1">
+                                        지금 주식!?
+                                </h4>
+                                </td>
+                                {
+                                    copy.map((sub, index) => (
+
+                                        <td className="bt-0">
+                                            <h4 className="mb-1">
+                                                {sub.stockName}
+                                            </h4>
+                                            <span className="text-success">
+                                                {
+                                                    sub.difference > 0
+                                                        ? (<i className="fa fa-caret-up mr-1"></i>)
+                                                        : (<i className="fa fa-caret-down mr-1"></i>)
+                                                }
+                                                {sub.difference}
+                                            </span>
+                                        </td>
+                                    ))}
                             </tr>
                         </thead>
                         <tbody>
-                            <TrTableSummary />
+                            <td className="align-middle">
+                                {
+                                    name.map((sub, index) => (
+
+                                        <tr className="align-middle">
+                                            { sub}
+                                        </tr>
+                                    ))}
+                            </td>
+                            <TrTableFavStock data={copy} />
                         </tbody>
                     </Table>
-                </Card>
-            </Col>
+                </Col>
+            </Row>
+            <Row>
+                <Col lg={12}>
+                    <HeaderDemo
+                        no={2}
+                        title="시장 정보"
+                        subTitle={(
+                            <React.Fragment>
+                                <strong>어려운 내용도 </strong>
+                            </React.Fragment>
+                        )}
+                    />
+                </Col>
+            </Row>
+            <Row>
+                <Col lg={6}>
+                    <Card className="mb-3">
+                        <CardBody>
+                            <span className="d-flex mb-3">
+                                <CardTitle>
+                                    <h6>증권 정보</h6>
+                                </CardTitle>
+                                <Badge pill className="ml-auto align-self-start"> Daily </Badge>
+                            </span>
+                            <div className="text-center">
+                                <SimpleLineChart />
+                            </div>
+                        </CardBody>
+                    </Card>
+                </Col>
+
+                <Col lg={6}>
+                    <Card className="mb-3">
+                        <CardBody>
+                            <div className="d-flex">
+                                <div>
+                                    <h6 className="card-title mb-1">투자자 동향</h6>
+                                    <p>2021-01-28</p>
+                                </div>
+                                <span className="ml-auto">
+                                </span>
+                            </div>
+                            <PositiveAndNegativeBarChart />
+                        </CardBody>
+                    </Card>
+                </Col>
+                
             <Col lg={ 6 }>
                 <Card className="mb-3">
                     <CardBody className="pb-1">
@@ -235,9 +219,10 @@ const Stock = () => (
                     </Table>
                 </Card>
             </Col>
-        </Row>
-    </Container>
-);
+            </Row>
+        </Container>
+    );
+}
 
 export default setupPage({
     pageTitle: 'Stock'

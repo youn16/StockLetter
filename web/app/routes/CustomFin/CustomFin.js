@@ -30,7 +30,6 @@ export const CustomFin = ( { match }) => {
     const { data, loading, error } = useSelector(state => state.price.price);
     const dispatch = useDispatch();
 
-    console.log(data);
     // 컴포넌트 마운트 후 포스트 목록 요청
     useEffect(() => {
         dispatch(getPriceByCode(code));
@@ -40,11 +39,10 @@ export const CustomFin = ( { match }) => {
     if (!data) return null;
 
     console.log(data);
-
     return (
         <Container>
             <HeaderMain 
-                title="Financial"
+                title="친절한 재무씨"
                 className="mb-5 mt-4"
             />
 
@@ -73,7 +71,7 @@ export const CustomFin = ( { match }) => {
                             title="시가"
                             badgeTitle="Daily"
                             badgeColor="info"
-                            value={data.openPrice}
+                            value={data.priceInfo.openPrice}원
                             valueTitle="vs 55.002 prev."
                             footerTitle="Prev"
                             footerTitleClassName="text-danger"
@@ -90,7 +88,7 @@ export const CustomFin = ( { match }) => {
                             title="고가"
                             badgeTitle="Daily"
                             badgeColor="secondary"
-                            value={data.highPrice}
+                            value={data.priceInfo.highPrice}원
                             valueTitle="vs 231 prev."
                             footerTitle="Prev"
                             footerTitleClassName="text-success"
@@ -107,7 +105,7 @@ export const CustomFin = ( { match }) => {
                             title="저가"
                             badgeTitle="Daily"
                             badgeColor="warning"
-                            value={data.lowPrice}
+                            value={data.priceInfo.lowPrice}원
                             valueTitle="vs 87 prev."
                             footerTitle="Prev"
                             footerTitleClassName="text-success"
@@ -150,19 +148,19 @@ export const CustomFin = ( { match }) => {
                         <Col xs={ 6 } className="text-center">
                             <p className="text-center mb-0">
                                 <i className="fa fa-circle text-primary mr-2"></i> 
-                                Today
+                                유동비율
                             </p>
                             <h4 className="mt-2 mb-0">
-                                $3,267
+                                {data.financeInfo.currentRatio}%
                             </h4>
                         </Col>
                         <Col xs={ 6 } className="text-center">
                             <p className="text-center mb-0">
                                 <i className="fa fa-circle text-primary mr-2"></i> 
-                                This Month
+                                부채비율
                             </p>
                             <h4 className="mt-2 mb-0">
-                                $8,091
+                                {data.financeInfo.deptToEquity}%
                             </h4>
                         </Col>
                     </Row>
@@ -178,19 +176,19 @@ export const CustomFin = ( { match }) => {
                         <Col xs={ 6 } className="text-center">
                             <p className="text-center mb-0">
                                 <i className="fa fa-circle text-info mr-2"></i> 
-                                Today
+                                ROE
                             </p>
                             <h4 className="mt-2 mb-0">
-                                $3,267
+                                {data.financeInfo.returnOnEquity}%
                             </h4>
                         </Col>
                         <Col xs={ 6 } className="text-center">
                             <p className="text-center mb-0">
                                 <i className="fa fa-circle text-info mr-2"></i> 
-                                This Month
+                                ROA
                             </p>
                             <h4 className="mt-2 mb-0">
-                                $8,091
+                                {data.financeInfo.returnOnAsset}%
                             </h4>
                         </Col>
                     </Row>
@@ -200,10 +198,10 @@ export const CustomFin = ( { match }) => {
                         <Col xs={ 6 } className="text-center">
                             <p className="text-center mb-0">
                                 <i className="fa fa-circle text-info mr-2"></i> 
-                                Due
+                                영업이익율
                             </p>
                             <h4 className="mt-2 mb-0">
-                                $4,007
+                                {data.financeInfo.operationProfit}%
                             </h4>
                         </Col>
                     </Row>
@@ -219,19 +217,19 @@ export const CustomFin = ( { match }) => {
                         <Col xs={ 6 } className="text-center">
                             <p className="text-center mb-0">
                                 <i className="fa fa-circle text-warning mr-2"></i> 
-                                Today
+                                매출액증가율
                             </p>
                             <h4 className="mt-2 mb-0">
-                                $3,267
+                                {data.financeInfo.revenueGrowth}%
                             </h4>
                         </Col>
                         <Col xs={ 6 } className="text-center">
                             <p className="text-center mb-0">
                                 <i className="fa fa-circle text-warning mr-2"></i> 
-                                This Month
+                                영업<br/>이익증가율
                             </p>
                             <h4 className="mt-2 mb-0">
-                                $8,091
+                                {data.financeInfo.operationIncomeGrowth}%
                             </h4>
                         </Col>
                     </Row>
@@ -248,33 +246,33 @@ export const CustomFin = ( { match }) => {
                     <Table size="sm">
                         <tbody>
                             <tr>
-                                <td className="text-inverse bt-0">Active Projects</td>
+                                <td className="text-inverse bt-0">EPS</td>
                                 <td className="text-right bt-0">
-                                    <Badge color="success" pill>6</Badge>
+                                    <Badge color="success" pill>{data.financeInfo.earningPerShare}원</Badge>
                                 </td>
                             </tr>
                             <tr>
-                                <td className="text-inverse">Open Tasks</td>
+                                <td className="text-inverse">PER</td>
                                 <td className="text-right">
-                                    <Badge color="primary" pill>4</Badge>
+                                    <Badge color="primary" pill>{data.financeInfo.priceEarningRatio}%</Badge>
                                 </td>
                             </tr>
                             <tr>
-                                <td className="text-inverse">Support Tickets</td>
+                                <td className="text-inverse">BPS</td>
                                 <td className="text-right">
-                                    <Badge color="info" pill>15</Badge>
+                                    <Badge color="info" pill>{data.financeInfo.bookvaluePerShare}원</Badge>
                                 </td>
                             </tr>
                             <tr>
-                                <td className="text-inverse">Active Timers</td>
+                                <td className="text-inverse">PBR</td>
                                 <td className="text-right">
-                                    <Badge color="secondary" pill>0</Badge>
+                                    <Badge color="secondary" pill>{data.financeInfo.priceBookvalueRatio}%</Badge>
                                 </td>
                             </tr>
                             <tr>
-                                <td className="text-inverse">Active Timers</td>
+                                <td className="text-inverse">배당수익률</td>
                                 <td className="text-right">
-                                    <Badge color="warning" pill>1000</Badge>
+                                    <Badge color="warning" pill>{data.financeInfo.dividendYield}%</Badge>
                                 </td>
                             </tr>
                         </tbody>

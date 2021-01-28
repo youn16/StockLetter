@@ -34,8 +34,7 @@ export const RoutedContent = () => {
             { /*    Custom Routes     */ }
              
             <Route path="/dashboards/stock" exact component={Stock} />
-            <Route component={ ReportGrid } path="/apps/report-grid" />
-            
+            <Route path='/apps/report-grid/:code' component={ ReportGrid }/>
             <Route path='/customfin/:code' component={CustomFin} />
 
             { /*    404    */ }

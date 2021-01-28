@@ -12,7 +12,6 @@ export const getPriceByCode = code => async dispatch => {
   try {
     const price = await priceAPI.getPriceByCode(code); // API 호출
     dispatch({ type: GET_PRICE_SUCCESS, price }); // 성공
-    console.log(price)
   } catch (e) {
     dispatch({ type: GET_PRICE_ERROR, error: e }); // 실패
   }

@@ -8,19 +8,19 @@ import {
     ResponsiveContainer,
     Legend, 
     LineChart,
-    Dot
+    Dot,
 } from './../../../components/recharts';
 
 import colors from './../../../colors';
 
 const data = [
-      {name: 'Mar \'11', uv: 4000, pv: 2400, amt: 2400},
-      {name: 'Dec \'11', uv: 3000, pv: 1398, amt: 2210},
-      {name: 'Oct \'12', uv: 2000, pv: 9800, amt: 2290},
-      {name: 'Jul \'13', uv: 2780, pv: 3908, amt: 2000},
-      {name: 'May \'14', uv: 1890, pv: 4800, amt: 2181},
-      {name: 'Feb \'15', uv: 2390, pv: 3800, amt: 2500},
-      {name: 'Dec \'15', uv: 3490, pv: 4300, amt: 2100},
+        {name: 'Jan \'19', uv: 3798.91, pv: 3092.66, amt: 3566.38},
+        {name: 'Jan \'20', uv: 3851.85, pv: 3114.55, amt: 3583.09},
+        {name: 'Jan \'21', uv: 3853.07, pv: 3160.84, amt: 3621.26},
+        {name: 'Jan \'22', uv: 3841.47, pv: 3140.63, amt: 3606.75},
+        {name: 'Jan \'25', uv: 3855.36, pv: 3208.99, amt: 3569.43},
+        {name: 'Jan \'26', uv: 3849.62, pv: 3140.31, amt: 3569.43},
+        {name: 'Jan \'27', uv: 3750.77, pv: 3122.56, amt: 3573.34},
 ];
 
 // eslint-disable-next-line
@@ -47,13 +47,13 @@ const SimpleLineChart = () => (
         <LineChart data={data}
             margin={{top: 5, right: 30, left: 20, bottom: 5}}>
            <XAxis dataKey="name"/>
-           <YAxis/>
+           <YAxis domain={[3000,4000]}/>
            <CartesianGrid strokeDasharray="3 3"/>
            <Tooltip/>
            <Legend />
-           <Line dataKey="pv" stroke={ colors['success'] } dot={generateDot} activeDot={generateActiveDot} name='Internistic Value' />
-           <Line dataKey="uv" stroke={ colors['purple'] } dot={generateDot} activeDot={generateActiveDot} name='Buy Price' />
-           <Line dataKey="amt" stroke={ colors['blue'] } dot={generateDot} activeDot={generateActiveDot} name='Stock Price' />
+           <Line dataKey="pv" stroke={ colors['success'] } dot={generateDot} activeDot={generateActiveDot} name='코스피' />
+           <Line dataKey="uv" stroke={ colors['purple'] } dot={generateDot} activeDot={generateActiveDot} name='SnP500' />
+           <Line dataKey="amt" stroke={ colors['blue'] } dot={generateDot} activeDot={generateActiveDot} name='상해종합' />
       </LineChart>
     </ResponsiveContainer>
 );

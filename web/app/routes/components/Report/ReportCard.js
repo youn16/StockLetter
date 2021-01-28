@@ -10,6 +10,7 @@ import {
     CardText,
     CardBody,
     CardTitle,
+    CardFooter,
     HolderProvider,
     UncontrolledTooltip,
     UncontrolledCollapse,
@@ -17,7 +18,6 @@ import {
     ListGroupItem
 } from './../../../components';
 
-import { randomArray, randomAvatar } from './../../../utilities';
 
 const status = [
     "success",
@@ -29,58 +29,30 @@ const badges = [
     "secondary"
 ];
 
-const ReportCard = (props) => {
-    
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggle = () => setIsOpen(!isOpen);
+const ReportCard = ({ data , id}) => {
+    console.log(data)
     return (
         <React.Fragment>
             { /* START Card */}
             <Card className="mb-3">
-                {/* 이미지 대기혹은 이미지가 없는 경우 넣는 것*/}
-                <HolderProvider.Icon
-                    iconChar=""
-                    size={ 32 }
-                >
-                <CardImg top />
-                </HolderProvider.Icon>
                 <CardBody>
-                    <span className="d-flex">
-                        <CardTitle tag="h6">
-                            제목이다. 삼성전자 뉴스 어쩌고
-                        </CardTitle>
-                        <ButtonGroup className="ml-auto" size="sm">
-                            <Button outline>
-                                <i className="fa fa-star-o"></i>
-                            </Button>
-                            <Button outline>
-                                <i className="fa fa-star"></i>
-                            </Button>
-                        </ButtonGroup>
-                    </span>
+                    <h4 className="align-self-center mb-0">
+                        { data.title }
+                    </h4>
                 </CardBody>
-                <ListGroup flush>
-                    <ListGroupItem tag="a" href="#" id="RamToggler" className="by-0 d-flex text-decoration-none">
-                        더보기
-                        <i onClick={toggle} className="fa fa-fw fa-angle-down ml-auto justify-content-end" id="RamTooltip"></i>
-                    </ListGroupItem>
-                    <UncontrolledTooltip placement="top" target="RamTooltip">
-                        Show/Hide News
-                    </UncontrolledTooltip>
-                </ListGroup>
-                <UncontrolledCollapse toggler="#RamToggler" isOpen={isOpen}>
-                    <CardBody className="pt-0">
-                        <CardText>
-                            <span className="mr-2 text-muted">
-                                <br />
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nisl elit, porta a sapien eget, fringilla sagittis ex.
-                            </span>
-                        </CardText>
-                    </CardBody>
-                </UncontrolledCollapse>
-
-                {/*Custom Part*/}
+                <div className="hr-text hr-text-center my-2"></div>
+                <CardBody className="pt-0">
+                    <CardText>
+                        <span className="mr-2">
+                            { data.description }
+                        </span>
+                    </CardText>
+                </CardBody>
+            <CardFooter className="small">
+                    <i className="fa fa-fw fa-info-circle mr-2"></i>
+                    <a href={data.link}><abbr title="원본">뉴스 기사를 더 보고 싶다면 여기를 눌러주세요</abbr></a>
+            </CardFooter>
+            {/*Custom Part*/}
 
             </Card>
             { /* END Card */}

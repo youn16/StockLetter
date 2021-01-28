@@ -6,56 +6,32 @@ import {
 } from './../../../components';
 
 const name = [
-    "Action Score",
-    "Quality Score",
-    "Value Score",
-    "Growth Score"
-];
-const badge = [
-    "a",
-    "q",
-    "v",
-    "g"
-];
-const value = [
-    "23",
-    "67",
-    "12",
-    "89",
-    "11",
-    "10",
-    "43",
-    "98"
+    "시장종류",
+    "현재가",
+    "전날 종가",
+    "증감"
 ];
 
-const TrTableFavStock = () => {
+const TrTableFavStock = ({data}) => {
+    console.log(data);
     return (
         <React.Fragment>
             {
-                _.times(5, (index) => (
-                    <tr key={ index }>
-                        <td className="align-middle">
-                            { randomArray(name) }
-                        </td>
-                        <td className="align-middle">
-                            <Badge pill className="text-uppercase mr-1"> { randomArray(badge) } </Badge> <span className="text-inverse">{ randomArray(value) }</span>
-                        </td>
-                        <td className="align-middle">
-                            <Badge pill className="text-uppercase mr-1"> { randomArray(badge) } </Badge> <span className="text-inverse">{ randomArray(value) }</span>
-                        </td>
-                        <td className="align-middle">
-                            <Badge pill className="text-uppercase mr-1"> { randomArray(badge) } </Badge> <span className="text-inverse">{ randomArray(value) }</span>
-                        </td>
-                        <td className="align-middle">
-                            <Badge pill className="text-uppercase mr-1"> { randomArray(badge) } </Badge> <span className="text-inverse">{ randomArray(value) }</span>
-                        </td>
-                        <td className="align-middle">
-                            <Badge pill className="text-uppercase mr-1"> { randomArray(badge) } </Badge> <span className="text-inverse">{ randomArray(value) }</span>
-                        </td>
-                        <td className="align-middle">
-                            <Badge pill className="text-uppercase mr-1"> { randomArray(badge) } </Badge> <span className="text-inverse">{ randomArray(value) }</span>
-                        </td>
-                    </tr>
+                data.map((sub, index) => (
+                    <td key={ index }>
+                        <tr className="align-middle">
+                            <Badge pill className="text-uppercase mr-1"> { "m" } </Badge> <span className="text-inverse">{ sub.marketType }</span>
+                        </tr>
+                        <tr className="align-middle">
+                            <Badge pill className="text-uppercase mr-1"> { "c" } </Badge> <span className="text-inverse">{ sub.stockPrice }</span>
+                        </tr>
+                        <tr className="align-middle">
+                            <Badge pill className="text-uppercase mr-1"> { "e" } </Badge> <span className="text-inverse">{ sub.priorPrice }</span>
+                        </tr>
+                        <tr className="align-middle">
+                            <Badge pill className="text-uppercase mr-1"> { "d" } </Badge> <span className="text-inverse">{ sub.difference }</span>
+                        </tr>
+                    </td>
                 ))
             }
         </React.Fragment>)
