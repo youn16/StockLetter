@@ -7,7 +7,9 @@ import {
     Table,
     Badge,
     CardTitle,
+    CardDeck,
     Nav,
+    Button,
     NavLink,
     NavItem,
     Col
@@ -31,6 +33,7 @@ import {
 import {
     TrTableFavStock
 } from "../../components/Stock/TrTableFavStock"
+import { PositiveAndNegativeBarChart } from '../../Graphs/ReCharts/components/PositiveAndNegativeBarChart';
 
 /*eslint-disable */
 const progressCompletion = [
@@ -41,7 +44,8 @@ const progressCompletion = [
 ];
 /*eslint-enable */
 
-const Stock = () => (
+const Stock = () => {
+    return (
     <Container>
         <Row className="mb-2">
             <Col lg={ 12 }>
@@ -58,9 +62,8 @@ const Stock = () => (
                         <tr>
                             <td className="bt-0">
                                 <h4 className="mb-1">
-                                    Your 5
+                                    구독 요약
                                 </h4>
-                                Favourites Stocks
                             </td>
                             <td className="bt-0">
                                 <h4 className="mb-1">
@@ -117,127 +120,41 @@ const Stock = () => (
                     </tbody>
                 </Table>
             </Col>
-            <Col lg={ 8 }>
+            <Col lg={ 6 }>
                 <Card className="mb-3">
                     <CardBody>
                         <span className="d-flex mb-3">
                             <CardTitle>
-                                <h6>Nokia Corp. 
-                                    <small>
-                                        <span className="text-success ml-2">
-                                            <i className="fa fa-caret-up mr-1"></i> 22.38
-                                        </span> / 5.9%
-                                    </small>
-                                </h6>
+                                <h6>증권 정보</h6>
                             </CardTitle>
-                            <Badge pill className="ml-auto align-self-start"> Score: 7.24 </Badge>
+                            <Badge pill className="ml-auto align-self-start"> Daily </Badge>
                         </span>
                         <div className="text-center">
                             <SimpleLineChart />
-                            <div className="d-flex mt-4">
-                                <dl className="row">
-                                    <dt className="col-sm-4 text-left text-sm-right">Open</dt>
-                                    <dd className="col-sm-8 text-left text-inverse">$834.00</dd>
-                                    <dt className="col-sm-4 text-left text-sm-right">High</dt>
-                                    <dd className="col-sm-8 text-left text-inverse">$198.00</dd>
-                                    <dt className="col-sm-4 text-left text-sm-right">Low</dt>
-                                    <dd className="col-sm-8 text-left text-inverse">$575.00</dd>
-                                </dl>
-                                <dl className="row">
-                                    <dt className="col-sm-4 text-left text-sm-right">Market Cap</dt>
-                                    <dd className="col-sm-8 text-left text-inverse">876.00B</dd>
-                                    <dt className="col-sm-4 text-left text-sm-right">P/E ratio (ttm)</dt>
-                                    <dd className="col-sm-8 text-left text-inverse">62.00</dd>
-                                    <dt className="col-sm-4 text-left text-sm-right">Divided Yield</dt>
-                                    <dd className="col-sm-8 text-left text-inverse">94.7%</dd>
-                                </dl>
-                            </div>
                         </div>
                     </CardBody>
                 </Card>
             </Col>
-            <Col lg={ 4 }>
-                <Card className="mb-3">
-                    <CardBody className="pb-1">
-                        <Nav pills>
-                            <NavItem>
-                                <NavLink href="#" active>Summary</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="#">Key Stats</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </CardBody>
-                    <Table responsive striped className="mb-0">
-                        <thead>
-                            <tr>
-                                <th className="bt-0">Name</th>
-                                <th className="bt-0 text-right">2013</th>
-                                <th className="bt-0 text-right">2014</th>
-                                <th className="bt-0 text-right">TTM</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <TrTableSummary />
-                        </tbody>
-                    </Table>
-                </Card>
-            </Col>
+
             <Col lg={ 6 }>
                 <Card className="mb-3">
-                    <CardBody className="pb-1">
-                        <CardTitle className="mb-0">
-                            <h6>
-                                Cheap Stock 
-                            </h6>
-                        </CardTitle>
+                    <CardBody>
+                        <div className="d-flex">
+                            <div>
+                            <h6 className="card-title mb-1">투자자 동향</h6>
+                                <p>2021-01-28</p>
+                            </div>
+                            <span className="ml-auto">
+                            </span>
+                        </div>
+                        <PositiveAndNegativeBarChart />
                     </CardBody>
-                    <Table responsive striped className="mb-0">
-                        <thead>
-                            <tr>
-                                <th className="bt-0"></th>
-                                <th className="bt-0 text-right">Price</th>
-                                <th className="bt-0 text-right">Score</th>
-                                <th className="bt-0 text-right">Q</th>
-                                <th className="bt-0 text-right">V</th>
-                                <th className="bt-0 text-right">G</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <TrTableStock />
-                        </tbody>
-                    </Table>
-                </Card>
-            </Col>
-            <Col lg={ 6 }>
-                <Card className="mb-3">
-                    <CardBody className="pb-1">
-                        <CardTitle className="mb-0">
-                            <h6>
-                                Expensive Stock 
-                            </h6>
-                        </CardTitle>
-                    </CardBody>
-                    <Table responsive striped className="mb-0">
-                        <thead>
-                            <tr>
-                                <th className="bt-0"></th>
-                                <th className="bt-0 text-right">Price</th>
-                                <th className="bt-0 text-right">Score</th>
-                                <th className="bt-0 text-right">Q</th>
-                                <th className="bt-0 text-right">V</th>
-                                <th className="bt-0 text-right">G</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <TrTableStock />
-                        </tbody>
-                    </Table>
                 </Card>
             </Col>
         </Row>
     </Container>
 );
+}
 
 export default setupPage({
     pageTitle: 'Stock'

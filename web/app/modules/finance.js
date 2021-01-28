@@ -12,7 +12,6 @@ export const getFinanceByCode = code => async dispatch => {
   try {
     const finance = await financeAPI.getFinanceByCode(code); // API 호출
     dispatch({ type: GET_FINANCE_SUCCESS, finance }); // 성공
-    console.log(finance)
   } catch (e) {
     dispatch({ type: GET_FINANCE_ERROR, error: e }); // 실패
   }

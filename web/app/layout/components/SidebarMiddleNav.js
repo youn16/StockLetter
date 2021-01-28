@@ -22,7 +22,7 @@ export const SidebarMiddleNav = () => {
     <SidebarMenu>
         <SidebarMenu.Item
             icon={<i className="fa fa-fw fa-home"></i>}
-            title="총 망라"
+            title="메인이에염"
         >
             <SidebarMenu.Item title="오늘의 구독 정보" to='/dashboards/stock' exact />
         </SidebarMenu.Item>
@@ -34,8 +34,8 @@ export const SidebarMiddleNav = () => {
                 icon={<i className="fa fa-fw fa-area-chart"></i>}
                 title={sub.stockName}
             >
-                <SidebarMenu.Item title="Financial" to={`/customfin/${sub.stockCode}`} />
-                <SidebarMenu.Item title="News" to="/apps/report-grid" />
+                <SidebarMenu.Item title="친절한 재무씨" to={`/customfin/${sub.stockCode}`} />
+                <SidebarMenu.Item title="최신 뉴스" to= {`/apps/report-grid/${sub.stockCode}`} />
             </SidebarMenu.Item>
         ))}
 

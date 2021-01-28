@@ -10,10 +10,9 @@ import {
 import colors from './../../../../colors';
 
 const data = [
-    {name: 'Group A', value: 400},
-    {name: 'Group B', value: 300},
-    {name: 'Group C', value: 300},
-    {name: 'Group D', value: 200}
+    {name: '개인', value: 680},
+    {name: '기관', value: 130},
+    {name: '외국인', value: 180}
 ];
 const COLORS = [ colors['primary'], colors['purple'], colors['success'], colors['yellow']];
 
