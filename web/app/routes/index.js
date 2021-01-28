@@ -6,11 +6,13 @@ import {
 } from 'react-router';
 
 // ----------- Pages Imports ---------------
-import Stock from './Dashboards/Stock';
+
+import NavbarOnly from './Layouts/NavbarOnly';
+import SidebarWithNavbar from './Layouts/SidebarWithNavbar';
+
 //Cumstom Imports
-
+import Stock from './Dashboards/Stock';
 import ReportGrid from './Apps/ReportGrid'; //뉴스
-
 import CustomFin from './CustomFin'; //각 종목별 정보
 
 // ----------- Layout Imports ---------------
