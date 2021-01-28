@@ -42,7 +42,7 @@ export const CustomFin = ( { match }) => {
     return (
         <Container>
             <HeaderMain 
-                title="Financial"
+                title="친절한 재무씨"
                 className="mb-5 mt-4"
             />
 

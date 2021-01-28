@@ -32,7 +32,7 @@ const ReportGrid = ({match}) => {
     return (
         <Container>
             <HeaderMain 
-                title="News"
+                title="뉴스"
                 className="mb-5 mt-4"
             />
             { /* START Content */}
