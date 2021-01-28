@@ -15,6 +15,7 @@ class InfoCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var diffLabel: UILabel!
     @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var typeImage: UIImageView!
     var stockCode:String = ""
     
     override func awakeFromNib() {

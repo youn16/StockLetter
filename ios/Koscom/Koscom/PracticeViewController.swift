@@ -62,6 +62,14 @@ class PracticeViewController: UIViewController, UITableViewDelegate,UITableViewD
         cell.priceLabel.text = String(stockList[indexPath.row].price)
         cell.stockCode = stockList[indexPath.row].code
         
+        let type = stockList[indexPath.row].type
+        if type == "KOSPI" {
+            cell.typeImage.image = UIImage(named: "kospi.png")
+        }
+        else {
+            cell.typeImage.image = UIImage(named: "kosdaq.png")
+        }
+        
         let diff = stockList[indexPath.row].difference
         if diff > 0{
             cell.diffLabel.text = "+" + String(stockList[indexPath.row].difference)
@@ -98,7 +106,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate,UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier=="stockSegue"{
             
-            let stockView = segue.destination as! StockViewController
+            let stockView = segue.destination as! TPTableViewController
             
             //let button = sender as! UIButton
             
@@ -106,7 +114,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate,UITableViewD
             let cell = sender as! InfoCell
             
             stockView.stockName=cell.nameLabel.text!
-            stockView.stockPrice=Int(cell.priceLabel.text!)!
+//            stockView.stockPrice=Int(cell.priceLabel.text!)!
             stockView.stockCode=cell.stockCode
         }
     }

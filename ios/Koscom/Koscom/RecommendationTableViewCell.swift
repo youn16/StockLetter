@@ -10,6 +10,10 @@ import UIKit
 
 class RecommendationTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var typeImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -37,29 +37,28 @@ class Stock: Codable{
 
 class StockInfo: Codable{
     var name:String
-    //var price:Int
+    var price:Int
     var code:String
     var type:String
-    //var priorPrice:Int
-    //var difference:Int
+    var priorPrice:Int
+    var difference:Int
     
-    //init(name:String, price:Int, code:String, type:String, priorPrice:Int, difference:Int) {
-    init(name:String, code:String, type:String) {
+    init(name:String, price:Int, code:String, type:String, priorPrice:Int, difference:Int) {
         self.name=name
-        //self.price=price
+        self.price=price
         self.code=code
         self.type=type
-        //self.priorPrice=priorPrice
-        //self.difference=difference
+        self.priorPrice=priorPrice
+        self.difference=difference
     }
     
     enum CodingKeys: String, CodingKey {
         case name = "stockName"
-        //case price = "stockPrice"
+        case price = "stockPrice"
         case code = "stockCode"
         case type = "marketType"
-        //case priorPrice = "priorPrice"
-        //case difference = "difference"
+        case priorPrice = "priorPrice"
+        case difference = "difference"
     }
 }
 
@@ -114,11 +113,42 @@ class News: Codable {
     }
 }
 
-var globalURL = "http://54.180.88.159:8080"
+class RecommendCorp: Codable {
+    var stockCode:String
+    var stockName:String
+    var characterType:Int
+    var marketType:String
+    var recommendedDate:String
+    var financeGrade:String
+    var priceGrade:String
+    var totalMarketValue:String
+    var rank:Int
+    var price:Int
+    
+    init(stockCode:String, stockName:String, characterType:Int, marketType:String, recommendedDate:String, financeGrade:String, priceGrade:String, totalMarketValue:String, rank:Int, price:Int) {
+        self.stockCode=stockCode
+        self.stockName=stockName
+        self.characterType=characterType
+        self.marketType=marketType
+        self.recommendedDate=recommendedDate
+        self.financeGrade=financeGrade
+        self.priceGrade=priceGrade
+        self.totalMarketValue=totalMarketValue
+        self.rank=rank
+        self.price=price
+    }
+    
+}
+
+
+
+var globalURL = "http://15.164.102.110:8080"
 //var globalURL = "http://192.168.100.112:8080"
 var stockList:[Stock] = []
 var stockNewsList:[News] = []
-
+var financeInfo:FinanceInfo? = nil
+var stockInfoList:[StockInfo] = []
+var recommendCorpList:[RecommendCorp] = []
 //Stock(name: "삼성전자", price: 88000, code :"1234"),
 //Stock(name: "셀트리온", price: 70000, code :"1234"),
 //Stock(name: "쿠팡", price: 1797980, code :"1234"),

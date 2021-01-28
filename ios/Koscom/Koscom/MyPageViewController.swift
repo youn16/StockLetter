@@ -32,7 +32,7 @@ class MyPageViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageCell", for: indexPath) as! MyPageCell
             
             cell.nameLabel.text = "장효진"
-            cell.attributeLabel.text = "성향 : 없음"
+            cell.attributeLabel.text = "성향 : 안정적"
             
             
             

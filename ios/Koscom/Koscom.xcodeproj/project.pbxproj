@@ -28,6 +28,8 @@
 		4EB68F2B25C1203C00A336BE /* MyPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB68F2A25C1203C00A336BE /* MyPageCell.swift */; };
 		4EB68F2D25C13DFC00A336BE /* CallAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB68F2C25C13DFC00A336BE /* CallAPI.swift */; };
 		4EB68F2F25C14BFA00A336BE /* StockCandidatesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB68F2E25C14BFA00A336BE /* StockCandidatesData.swift */; };
+		4EB68F6F25C2D55200A336BE /* RecommendationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB68F6E25C2D55200A336BE /* RecommendationTableViewController.swift */; };
+		4EB68F7125C2D84400A336BE /* RecommendationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB68F7025C2D84400A336BE /* RecommendationTableViewCell.swift */; };
 		AE7B30E94F072FBEE419AC6A /* Pods_Koscom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E28D231F6A244262987655 /* Pods_Koscom.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		4EB68F2A25C1203C00A336BE /* MyPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCell.swift; sourceTree = "<group>"; };
 		4EB68F2C25C13DFC00A336BE /* CallAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallAPI.swift; sourceTree = "<group>"; };
 		4EB68F2E25C14BFA00A336BE /* StockCandidatesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCandidatesData.swift; sourceTree = "<group>"; };
+		4EB68F6E25C2D55200A336BE /* RecommendationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationTableViewController.swift; sourceTree = "<group>"; };
+		4EB68F7025C2D84400A336BE /* RecommendationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 		4E66B20025B8812400E9CC51 = {
 			isa = PBXGroup;
 			children = (
+				4E66B20E25B8812400E9CC51 /* SceneDelegate.swift */,
 				4E66B20B25B8812400E9CC51 /* Koscom */,
 				4E66B20A25B8812400E9CC51 /* Products */,
 				4FE2AA034B4EEF6AACDB1F51 /* Pods */,
@@ -104,8 +109,9 @@
 				4E66B23825BFD95D00E9CC51 /* BgView.swift */,
 				4E66B23625BFB07E00E9CC51 /* PractiveView.swift */,
 				4E66B20C25B8812400E9CC51 /* AppDelegate.swift */,
-				4E66B20E25B8812400E9CC51 /* SceneDelegate.swift */,
 				4E66B21225B8812400E9CC51 /* Main.storyboard */,
+				4EB68F7025C2D84400A336BE /* RecommendationTableViewCell.swift */,
+				4EB68F6E25C2D55200A336BE /* RecommendationTableViewController.swift */,
 				4E66B23A25BFEAF300E9CC51 /* SearchCell.swift */,
 				4E66B21525B8812600E9CC51 /* Assets.xcassets */,
 				4E66B21725B8812600E9CC51 /* LaunchScreen.storyboard */,
@@ -283,6 +289,8 @@
 				4E66B22F25BEE6FE00E9CC51 /* StockAdditionTableViewController.swift in Sources */,
 				4E66B23125BEF75300E9CC51 /* StockViewController.swift in Sources */,
 				4E66B23325BF15A600E9CC51 /* PracticeViewController.swift in Sources */,
+				4EB68F7125C2D84400A336BE /* RecommendationTableViewCell.swift in Sources */,
+				4EB68F6F25C2D55200A336BE /* RecommendationTableViewController.swift in Sources */,
 				4E66B20D25B8812400E9CC51 /* AppDelegate.swift in Sources */,
 				4EB68F2D25C13DFC00A336BE /* CallAPI.swift in Sources */,
 				4EB68EFA25C0817A00A336BE /* FirstTableViewCell.swift in Sources */,

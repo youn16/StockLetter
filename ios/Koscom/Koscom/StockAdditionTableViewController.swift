@@ -79,6 +79,14 @@ class StockAdditionTableViewController: UITableViewController, UISearchBarDelega
         cell.nameLabel.text = candidates[indexPath.row].name
         cell.priceLabel.text = String(candidates[indexPath.row].code)
         
+        let type = candidates[indexPath.row].type
+        if type == "KOSPI" {
+            cell.typeImage.image = UIImage(named: "kospi.png")
+        }
+        else {
+            cell.typeImage.image = UIImage(named: "kosdaq.png")
+        }
+        
         return cell
     }
     
@@ -119,18 +127,18 @@ class StockAdditionTableViewController: UITableViewController, UISearchBarDelega
     */
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier=="stockSegue"{
+        if segue.identifier == "stockSegue"{
             
-            let stockView = segue.destination as! StockViewController
+            let stockView = segue.destination as! TPTableViewController
             
             //let button = sender as! UIButton
             
             //let cell=button.superview?.superview as! SearchCell
             let cell = sender as! SearchCell
             
-            stockView.stockName=cell.nameLabel.text!
+//            stockView.stockName=cell.nameLabel.text!
             stockView.stockCode=cell.priceLabel.text!
-            
+            stockView.stockName=cell.nameLabel.text!
         }
     }
 

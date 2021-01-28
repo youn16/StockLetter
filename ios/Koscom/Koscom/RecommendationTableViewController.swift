@@ -18,30 +18,46 @@ class RecommendationTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        getRecommendationData(investType: "1", tableView: self.tableView)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return recommendCorpList.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecommendationTableViewCell", for: indexPath) as! RecommendationTableViewCell
 
         // Configure the cell...
-
+        cell.nameLabel.text = recommendCorpList[indexPath.row].stockName
+        cell.typeLabel.text = "현재 " + String(Int.random(in: 5...15)) + "명이 구독하고 있습니다."
+        cell.priceLabel.text = String(recommendCorpList[indexPath.row].price)
+        let type = recommendCorpList[indexPath.row].marketType
+        if type == "KOSPI" {
+            cell.typeImage.image = UIImage(named: "kospi.png")
+        }
+        else {
+            cell.typeImage.image = UIImage(named: "kosdaq.png")
+        }
         return cell
     }
-    */
-
+    
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "기업 추천"
+//    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -35,8 +35,8 @@ class StockViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = self.rightButton
 
         checkSubscribe()
-        getFinanceData(stockCode: stockCode)
-        getStockData(stockCode: stockCode)
+        //getFinanceData(stockCode: stockCode)
+        //getStockData(stockCode: stockCode)
         
         //getNewsData(stockCode: stockCode)
     }

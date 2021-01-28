@@ -38,6 +38,7 @@ func getData(routeTableView:UITableView?){  //내가 구독하고 있는 기업�
             let decoder = JSONDecoder()
             do{
                 let stocks = try decoder.decode([Stock].self, from: response.data!)
+                stockList.removeAll()
                 for stock in stocks{
                     stockList.append(stock)
                 }
@@ -140,7 +141,7 @@ func getCandidatesData(){   //자동완성 전체 후보군 받아오는 메소�
         
 }
 
-func getStockData(stockCode:String){
+func getStockData(stockCode:String, tableView : UITableView){
 
         let url = globalURL + "/stock/" + stockCode
         
@@ -159,10 +160,13 @@ func getStockData(stockCode:String){
             
             let decoder = JSONDecoder()
             do{
-                let stockInfo = try decoder.decode(StockInfo.self, from: response.data!)
+                var si = try decoder.decode(StockInfo.self, from: response.data!)
+                stockInfoList.removeAll()
+                stockInfoList.append(si)
             } catch{
                 print(error)
             }
+            tableView.reloadData()
                     
             case .failure(let error):
                 print(error)
@@ -173,7 +177,7 @@ func getStockData(stockCode:String){
 }
 
 
-func getFinanceData(stockCode : String){    //재무재표 받아오는 메소드
+func getFinanceData(stockCode : String, tableView : UITableView){    //재무재표 받아오는 메소드
 
         let url = globalURL + "/stock/" + stockCode + "/finance"
         
@@ -192,11 +196,12 @@ func getFinanceData(stockCode : String){    //재무재표 받아오는 메소�
             
             let decoder = JSONDecoder()
             do{
-                let stocks = try decoder.decode(FinanceInfo.self, from: response.data!)
-                print(stocks)
+                let fi = try decoder.decode(FinanceInfo.self, from: response.data!)
+                financeInfo = fi
             } catch{
                 print(error)
             }
+            tableView.reloadData()
                     
             case .failure(let error):
                 print(error)
@@ -227,6 +232,40 @@ func getNewsData(stockCode : String, tableView : UITableView){    //재무재표
             let decoder = JSONDecoder()
             do{
                 stockNewsList = try decoder.decode([News].self, from: response.data!)
+            } catch{
+                print(error)
+            }
+                    
+            tableView.reloadData()
+            case .failure(let error):
+                print(error)
+                
+            }
+        }
+        
+}
+
+
+func getRecommendationData(investType : String, tableView : UITableView){    //재무재표 받아오는 메소드
+
+        let url = globalURL + "/stock/recommendation?characterType=" + investType
+        
+        AF.request(url,method: .get).validate()
+        .responseString { response in
+        print(" - API url: \(String(describing: response.request!))")
+
+        //if case success
+        switch response.result {
+            case .success(let value):
+            let responseString = NSString(data: response.data!, encoding:
+            String.Encoding.utf8.rawValue )
+            
+            print(responseString)
+            
+            
+            let decoder = JSONDecoder()
+            do{
+                recommendCorpList = try decoder.decode([RecommendCorp].self, from: response.data!)
             } catch{
                 print(error)
             }
