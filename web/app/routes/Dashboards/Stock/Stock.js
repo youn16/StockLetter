@@ -23,6 +23,9 @@ import {
     SimpleLineChart
 } from "../../components/Stock/SimpleLineChart"
 
+import {
+    TrTableStock
+} from "../../components/Stock/TrTableStock"
 
 import {
     TrTableFavStock
@@ -62,10 +65,10 @@ const Stock = () => {
                 </Col>
             </Row>
             <Row>
-                <Col lg={ 12 }>
+                <Col lg={12}>
                     <HeaderDemo
-                        no={1} 
-                        title="내 구독 기업 한눈에 보기" 
+                        no={1}
+                        title="내 구독 기업 한눈에 보기"
                         subTitle={(
                             <React.Fragment>
                                 <strong>보아요</strong>
@@ -104,28 +107,28 @@ const Stock = () => {
                             </tr>
                         </thead>
                         <tbody>
-                        <td className="align-middle">
-                            {
-                                name.map((sub, index) => (
+                            <td className="align-middle">
+                                {
+                                    name.map((sub, index) => (
 
-                                    <tr className="align-middle">
-                                        { sub }
-                                    </tr>
-                                ))}
-                                </td>
+                                        <tr className="align-middle">
+                                            { sub}
+                                        </tr>
+                                    ))}
+                            </td>
                             <TrTableFavStock data={copy} />
                         </tbody>
                     </Table>
                 </Col>
-                </Row>
-                <Row>
-                <Col lg={ 12 }>
+            </Row>
+            <Row>
+                <Col lg={12}>
                     <HeaderDemo
-                        no={2} 
-                        title="시장 정보" 
+                        no={2}
+                        title="시장 정보"
                         subTitle={(
                             <React.Fragment>
-                                <strong>어려운 내용도 한눈에</strong>
+                                <strong>어려운 내용도 </strong>
                             </React.Fragment>
                         )}
                     />
@@ -163,6 +166,59 @@ const Stock = () => {
                         </CardBody>
                     </Card>
                 </Col>
+                
+            <Col lg={ 6 }>
+                <Card className="mb-3">
+                    <CardBody className="pb-1">
+                        <CardTitle className="mb-0">
+                            <h6>
+                                Cheap Stock 
+                            </h6>
+                        </CardTitle>
+                    </CardBody>
+                    <Table responsive striped className="mb-0">
+                        <thead>
+                            <tr>
+                                <th className="bt-0"></th>
+                                <th className="bt-0 text-right">Price</th>
+                                <th className="bt-0 text-right">Score</th>
+                                <th className="bt-0 text-right">Q</th>
+                                <th className="bt-0 text-right">V</th>
+                                <th className="bt-0 text-right">G</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <TrTableStock />
+                        </tbody>
+                    </Table>
+                </Card>
+            </Col>
+            <Col lg={ 6 }>
+                <Card className="mb-3">
+                    <CardBody className="pb-1">
+                        <CardTitle className="mb-0">
+                            <h6>
+                                Expensive Stock 
+                            </h6>
+                        </CardTitle>
+                    </CardBody>
+                    <Table responsive striped className="mb-0">
+                        <thead>
+                            <tr>
+                                <th className="bt-0"></th>
+                                <th className="bt-0 text-right">Price</th>
+                                <th className="bt-0 text-right">Score</th>
+                                <th className="bt-0 text-right">Q</th>
+                                <th className="bt-0 text-right">V</th>
+                                <th className="bt-0 text-right">G</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <TrTableStock />
+                        </tbody>
+                    </Table>
+                </Card>
+            </Col>
             </Row>
         </Container>
     );
