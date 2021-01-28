@@ -30,7 +30,11 @@
 3. 프론트1 : IOS 어플리케이션 개발
 4. 프론트2 : WEB SITE 개발
 
-## DB 배포 방법
+## BackEnd 배포 방법
+1. OpenJDK 설치 : Zulu 8
+2. Maven 설치
+3. spring 프로젝트 디렉토리에서 mvn clean package
+4. /target 페이지에서 java -jar spring*.jar으로 서버 실행.
 
 ## IOS 배포 방법
 > app
