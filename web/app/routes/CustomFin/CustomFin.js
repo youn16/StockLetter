@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 //위젯 코드에서 시작
 
 import {
@@ -8,7 +9,6 @@ import {
     Card,
     CardBody,
     CardDeck,
-    Media,
     Row,
     Table,
 } from './../../components'
@@ -21,8 +21,26 @@ import {
     ProfileOverviewCard
 } from "../components/Profile/ProfileOverviewCard";
 
-export const CustomFin = () => {
+import { getPriceByCode } from '../../modules/price';
+
+export const CustomFin = ( { match }) => {
     
+    const { code } = match.params;
+
+    const { data, loading, error } = useSelector(state => state.price.price);
+    const dispatch = useDispatch();
+
+    console.log(data);
+    // 컴포넌트 마운트 후 포스트 목록 요청
+    useEffect(() => {
+        dispatch(getPriceByCode(code));
+    }, [dispatch,code]);
+    if (loading) return <div>로딩중...</div>;
+    if (error) return <div>에러 발생</div>;
+    if (!data) return null;
+
+    console.log(data);
+
     return (
         <Container>
             <HeaderMain 
@@ -55,7 +73,7 @@ export const CustomFin = () => {
                             title="시가"
                             badgeTitle="Daily"
                             badgeColor="info"
-                            value="{users.openPrice}"
+                            value={data.openPrice}
                             valueTitle="vs 55.002 prev."
                             footerTitle="Prev"
                             footerTitleClassName="text-danger"
@@ -72,7 +90,7 @@ export const CustomFin = () => {
                             title="고가"
                             badgeTitle="Daily"
                             badgeColor="secondary"
-                            value="{users.highPrice}"
+                            value={data.highPrice}
                             valueTitle="vs 231 prev."
                             footerTitle="Prev"
                             footerTitleClassName="text-success"
@@ -89,7 +107,7 @@ export const CustomFin = () => {
                             title="저가"
                             badgeTitle="Daily"
                             badgeColor="warning"
-                            value="{users.lowPrice}"
+                            value={data.lowPrice}
                             valueTitle="vs 87 prev."
                             footerTitle="Prev"
                             footerTitleClassName="text-success"
@@ -112,7 +130,7 @@ export const CustomFin = () => {
                         className="mt-5"
                         subTitle={(
                             <React.Fragment>
-                                <strong>시가</strong>, <strong> 고가</strong>, <strong> 저가</strong>
+                                <strong>안정성비율</strong>, <strong>수익성비율</strong>, <strong> 성장성비율</strong>,<strong> 시장가치비율</strong>
                             </React.Fragment>
                         )}
                     />

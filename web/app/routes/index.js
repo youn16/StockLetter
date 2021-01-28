@@ -231,7 +231,7 @@ export const RoutedContent = () => {
             { /*    Custom Routes     */ }
             <Route component={ ReportGrid } path="/apps/report-grid" />
             
-            <Route path='/customfin' exact component={CustomFin} />
+            <Route path='/customfin/:code' component={CustomFin} />
 
             { /*    404    */ }
             <Redirect to="/pages/error-404" />
