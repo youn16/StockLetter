@@ -14,6 +14,8 @@ class RecommendationTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    var cod:String = ""
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

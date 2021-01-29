@@ -156,6 +156,8 @@ class TPTableViewController: UITableViewController  {
                 cell.priceBookvalueRatio.text = String(fi.priceBookvalueRatio)+"%"
                 cell.dividendYield.text = String(fi.dividendYield)+"%"
             }
+            cell.bgView.backgroundColor = UIColor.systemGray5
+            cell.contentView.backgroundColor = UIColor.systemGray5
             cell.firstView.layer.addBorder([.bottom], color: UIColor.black, width: 1.0)
             cell.firstView.layer.addBorder([.left], color: UIColor.black, width: 1.0)
             cell.secondView.layer.addBorder([.bottom], color: UIColor.black, width: 1.0)

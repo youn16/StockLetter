@@ -854,6 +854,7 @@
                                     <outlet property="priceLabel" destination="NnU-mI-jxr" id="Our-sf-sPq"/>
                                     <outlet property="typeImage" destination="aov-JF-hvY" id="zVU-6t-Y9g"/>
                                     <outlet property="typeLabel" destination="jLn-mn-kDo" id="8OM-5l-nWF"/>
+                                    <segue destination="RGZ-KT-eqa" kind="show" identifier="stockSegue" id="KIc-Cj-Yct"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -989,7 +990,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kX4-Pd-w9L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2252" y="98"/>
+            <point key="canvasLocation" x="1510" y="98"/>
         </scene>
         <!--Item-->
         <scene sceneID="03C-JF-s8O">
@@ -1033,7 +1034,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8rq-b5-22i"/>
+        <segue reference="KIc-Cj-Yct"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.right" catalog="system" width="96" height="128"/>

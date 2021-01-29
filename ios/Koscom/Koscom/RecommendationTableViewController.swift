@@ -41,6 +41,7 @@ class RecommendationTableViewController: UITableViewController {
         cell.nameLabel.text = recommendCorpList[indexPath.row].stockName
         cell.typeLabel.text = "현재 " + String(Int.random(in: 5...15)) + "명이 구독하고 있습니다."
         cell.priceLabel.text = String(recommendCorpList[indexPath.row].price)
+        cell.cod = recommendCorpList[indexPath.row].stockCode
         let type = recommendCorpList[indexPath.row].marketType
         if type == "KOSPI" {
             cell.typeImage.image = UIImage(named: "kospi.png")
@@ -93,14 +94,19 @@ class RecommendationTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+            if segue.identifier == "stockSegue"{
+                
+                let stockView = segue.destination as! TPTableViewController
+                
+                //let button = sender as! UIButton
+                
+                //let cell=button.superview?.superview as! SearchCell
+                let cell = sender as! RecommendationTableViewCell
+                
+    //            stockView.stockName=cell.nameLabel.text!
+                stockView.stockCode=cell.cod
+                stockView.stockName=cell.nameLabel.text!
+            }
+        }
 }
